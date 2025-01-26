@@ -101,6 +101,14 @@ closeButtons.forEach(button => {
         }
     });
 });
+function handleReveal() {
+    inputs.forEach((input, index) => {
+        if (input.value.trim()) {
+            const type = index === 0 ? 'transport' : 'dream';
+            showAnswerPopup(input.value, type);
+        }
+    });
+}
 
 
     // Event Listeners
