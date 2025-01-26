@@ -380,7 +380,7 @@ ul.dashed > li:before {
 /* Answer popup animations */
 .transport-popup {
     animation: slideIn 0.5s ease-out;
-    position:relative;
+    position:relative!important;
     background:#40c5ae;
 }
 
