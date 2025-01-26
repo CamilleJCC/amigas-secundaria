@@ -410,17 +410,14 @@ ul.dashed > li:before {
     font-size: 16px;
 }
 
-/* Answer popup animations */
-.transport-popup {
-    animation: slideIn 0.5s ease-out;
-    position:relative;
-    background:#40c5ae;
+/* Add these styles for the sliding animation */
+.answer-popup {
+    transform: translateX(100%);
+    transition: transform 0.5s ease-out;
 }
 
-.dream-popup {
-    animation: fadeIn 0.8s ease-out;
-    background: #40c5ae;
-    position:relative;
+.answer-popup.show {
+    transform: translateX(0);
 }
 
 @keyframes slideIn {
