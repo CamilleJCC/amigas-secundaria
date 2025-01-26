@@ -99,7 +99,7 @@ li {
     padding-bottom: 15px;
     color: var(--secondary-color);
     margin-left: 1.65rem;
-    width: 49%;
+    width: 63%;
 }
 
 /* Remove marker for dashed list items */
@@ -397,7 +397,7 @@ ul.dashed > li:before {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: none;
-    width: 63%;
+    width: 44%;
     height: fit-content;
 }
 
