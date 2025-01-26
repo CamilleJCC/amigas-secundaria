@@ -74,16 +74,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    function showAnswerPopup(answer, type) {
+function showAnswerPopup(answer, index) {
     overlay.style.display = 'block';
-    const popup = type === 'transport' ? transportPopup : dreamPopup;
+    const popup = document.getElementById(`answer${index + 1}Popup`);
     popup.querySelector('.answer-text').textContent = answer;
     popup.style.display = 'block';
-    // Add a small delay to trigger the animation
     setTimeout(() => {
         popup.classList.add('show');
     }, 10);
 }
+
+function handleReveal() {
+    inputs.forEach((input, index) => {
+        if (input.value.trim()) {
+            showAnswerPopup(input.value, index);
+        }
+    });
+}
+
 
 // Update the close functionality
 closeButtons.forEach(button => {
@@ -101,14 +109,7 @@ closeButtons.forEach(button => {
         }
     });
 });
-function handleReveal() {
-    inputs.forEach((input, index) => {
-        if (input.value.trim()) {
-            const type = index === 0 ? 'transport' : 'dream';
-            showAnswerPopup(input.value, type);
-        }
-    });
-}
+
 
 
     // Event Listeners
