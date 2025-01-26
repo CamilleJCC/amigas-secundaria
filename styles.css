@@ -374,19 +374,14 @@ ul.dashed > li:before {
     flex-direction: column;
     gap: 20px;
     z-index: 1000;
-    width: 80%;
-    max-width: 600px;
+    width:100%;
 }
 
-.answer-popup {
-    transform: translateX(100%);
-    transition: transform 0.5s ease-out;
-    position: relative;
-    width: 100%;
-}
-
-.answer-popup.show {
-    transform: translateX(0);
+/* Answer popup animations */
+.transport-popup {
+    animation: slideIn 0.5s ease-out;
+    position:relative;
+    background:#40c5ae;
 }
 
 
