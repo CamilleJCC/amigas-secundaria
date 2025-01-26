@@ -397,7 +397,7 @@ ul.dashed > li:before {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: none;
-    width: 44%;
+    width: 63%;
     height: fit-content;
 }
 
@@ -446,9 +446,10 @@ ul.dashed > li:before {
 /* Media Queries */
 @media (min-width: 768px) {
     .investigation-container {
-        grid-template-columns: 1.5fr 1fr;
+        grid-template-columns: 1.2fr 1fr;
         padding: 0rem 1rem;
         align-items: center;
+        gap: 4rem;
     }
 
     .left-col {
