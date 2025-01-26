@@ -75,20 +75,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showAnswerPopup(answer, type) {
-        overlay.style.display = 'block';
-        const popup = type === 'transport' ? transportPopup : dreamPopup;
-        popup.querySelector('.answer-text').textContent = answer;
-        popup.style.display = 'block';
-    }
+    overlay.style.display = 'block';
+    const popup = type === 'transport' ? transportPopup : dreamPopup;
+    popup.querySelector('.answer-text').textContent = answer;
+    popup.style.display = 'block';
+    // Add a small delay to trigger the animation
+    setTimeout(() => {
+        popup.classList.add('show');
+    }, 10);
+}
 
-    function handleReveal() {
-        inputs.forEach((input, index) => {
-            if (input.value.trim()) {
-                const type = index === 0 ? 'transport' : 'dream';
-                showAnswerPopup(input.value, type);
-            }
-        });
-    }
+// Update the close functionality
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const popup = button.parentElement;
+        if (popup.classList.contains('answer-popup')) {
+            popup.classList.remove('show');
+            setTimeout(() => {
+                popup.style.display = 'none';
+                overlay.style.display = 'none';
+            }, 500);
+        } else {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+        }
+    });
+});
+
 
     // Event Listeners
     artwork.addEventListener('mousemove', updateZoom);
@@ -99,13 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
     plusIcon.addEventListener('click', () => {
         overlay.style.display = 'block';
         bioPopup.style.display = 'block';
-    });
-
-    closeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            overlay.style.display = 'none';
-            button.parentElement.style.display = 'none';
-        });
     });
 
     overlay.addEventListener('click', () => {
