@@ -473,3 +473,14 @@ ul.dashed > li:before {
         margin-left: auto;
     }
 }
+@media and (max-screen:1000px){
+    h2 {
+        width:100%;
+    }
+    li {
+        width:100%;
+    }
+    .popup {
+        100%;
+    }
+}
