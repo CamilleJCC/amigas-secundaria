@@ -11,6 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButtons = document.querySelectorAll('.close-btn');
     const tooltipText = document.querySelector('.tooltip-text');
     const artistName = document.querySelector('.semibold');
+    const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// Create YouTube player
+let player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: 'NP7R2SIQq38', // Replace with your video ID
+        playerVars: {
+            'autoplay': 1,
+            'controls': 0
+        },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
 
     function updateZoom(e) {
         const rect = artwork.getBoundingClientRect();
