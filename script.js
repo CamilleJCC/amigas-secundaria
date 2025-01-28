@@ -1,28 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // DOM Elements
-    const magnifier = document.querySelector('.magnifying-glass');
-    const artwork = document.querySelector('.artwork');
-    const revealBtn = document.querySelector('.reveal-btn');
-    const inputs = document.querySelectorAll('.magic-input');
-    const plusBtn = document.getElementById('plusBtn');
-    const bioPopup = document.getElementById('bioPopup');
-    const plusPopup = document.getElementById('tooltipText');
-    const overlay = document.getElementById('overlay');
-    const closeButtons = document.querySelectorAll('.close-btn');
-    const tooltipText = document.querySelector('.tooltip-text');
-    const artistName = document.querySelector('.semibold');
-    const tag = document.createElement('script');
+const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-// Create YouTube player
 let player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '0',
         width: '0',
-        videoId: 'NP7R2SIQq38', // Replace with your video ID
+        videoId: 'NP7R2SIQq38',
         playerVars: {
             'autoplay': 1,
             'controls': 0
@@ -36,6 +22,20 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     event.target.playVideo();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // DOM Elements
+    const magnifier = document.querySelector('.magnifying-glass');
+    const artwork = document.querySelector('.artwork');
+    const revealBtn = document.querySelector('.reveal-btn');
+    const inputs = document.querySelectorAll('.magic-input');
+    const plusBtn = document.getElementById('plusBtn');
+    const bioPopup = document.getElementById('bioPopup');
+    const plusPopup = document.getElementById('tooltipText');
+    const overlay = document.getElementById('overlay');
+    const closeButtons = document.querySelectorAll('.close-btn');
+    const tooltipText = document.querySelector('.tooltip-text');
+    const artistName = document.querySelector('.semibold');
 
     function updateZoom(e) {
         const rect = artwork.getBoundingClientRect();
