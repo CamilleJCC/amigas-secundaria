@@ -22,6 +22,16 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     event.target.playVideo();
 }
+// Add this function to handle the first interaction
+function initAudioOnInteraction() {
+    player.playVideo();
+    // Remove the listener after first interaction
+    document.removeEventListener('click', initAudioOnInteraction);
+}
+
+// Add the listener to the whole document
+document.addEventListener('click', initAudioOnInteraction);
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
