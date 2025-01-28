@@ -1,36 +1,46 @@
+// Initialize YouTube API
+let player;
+let isPlayerReady = false;
+
+// Load YouTube API
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-let player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '0',
         width: '0',
         videoId: 'NP7R2SIQq38',
         playerVars: {
-            'autoplay': 1,
-            'controls': 0
+            'autoplay': 0,
+            'controls': 0,
+            'loop': 1,
+            'playlist': 'NP7R2SIQq38' // Required for looping
         },
         events: {
-            'onReady': onPlayerReady
+            'onReady': (event) => {
+                isPlayerReady = true;
+                // Try to play immediately
+                event.target.playVideo();
+            }
         }
     });
 }
 
-function onPlayerReady(event) {
-    event.target.playVideo();
-}
-// Add this function to handle the first interaction
+// Handle user interaction
 function initAudioOnInteraction() {
-    player.playVideo();
-    // Remove the listener after first interaction
-    document.removeEventListener('click', initAudioOnInteraction);
+    if (isPlayerReady && player) {
+        player.playVideo();
+        // Remove the listener once played
+        document.removeEventListener('click', initAudioOnInteraction);
+    }
 }
 
-// Add the listener to the whole document
+// Add click listener
 document.addEventListener('click', initAudioOnInteraction);
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
