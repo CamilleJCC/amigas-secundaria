@@ -272,7 +272,6 @@ width: 32px;
     transition: all 0.3s ease;
     font-family: 'InterTight';
     font-size: 26px;
-    margin-top: -2rem !important;
     color:white;
 }
 .bio-icon:hover {
